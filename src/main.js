@@ -14,7 +14,15 @@ async function getProducts() {
 }
 async function main() {
     const products = await getProducts();
-    console.log(products);
+    let html = "";
+    products.forEach(function(products) {
+        console.log(products);
+
+    });
+    html += "products";
+
+    document.querySelector(".products").innerHTML = html;
+    
 
 }
 main();
