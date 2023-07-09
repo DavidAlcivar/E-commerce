@@ -4,7 +4,7 @@ async function getProducts() {
     try {
         const data = await fetch(BASE__URL);
         const response = await data.json();
-        console.log(response);
+        return response
 
     } catch (error) {
         console.log(error);
@@ -12,4 +12,9 @@ async function getProducts() {
     }
 
 }
-getProducts()
+async function main() {
+    const products = await getProducts();
+    console.log(products);
+
+}
+main();
