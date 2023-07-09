@@ -10,15 +10,37 @@ img {
     display: block;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+
+}
+
 .icon__bag {
     font-size: 2rem;
     cursor: pointer;
+}
+
+.content__navbar {
+    background-color: aqua;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: black;
+}
+.navbar {
+    background-color: blue;
+    display: flex;
+    justify-content: space-between;
 }
 
 .container {
     max-width: 1024px;
     margin: 0 auto;
     padding: 1rem;
+    padding-top: 3rem;
+
 }
 .products {
     display: grid;
