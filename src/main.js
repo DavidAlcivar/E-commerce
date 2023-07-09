@@ -43,6 +43,9 @@ async function main() {
                 <img src="${image}" alt="">
             </div>
             <h3>${name}</h3>
+            <p>$${price}.0 - ${quantity} unidades</p>
+            <button class="product__btn" id= "${id}">Agregar</button>
+
         </div>
             
         `;
