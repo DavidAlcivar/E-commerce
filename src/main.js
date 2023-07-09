@@ -14,15 +14,43 @@ async function getProducts() {
 }
 async function main() {
     const products = await getProducts();
+
     let html = "";
-    products.forEach(function(products) {
-        console.log(products);
+
+    products.forEach(function ({
+        category,
+        description,
+        id,
+        image,
+        name,
+        price,
+        quantity
+
+    }) {
+        console.log({
+            category,
+            description,
+            id,
+            image,
+            name,
+            price,
+            quantity,
+        });
+
+        html += `
+        <div class="product">
+            <div class="product__img">
+                <img src="${image}" alt="">
+            </div>
+            <h3>${name}</h3>
+        </div>
+            
+        `;
+
 
     });
-    html += "products";
 
     document.querySelector(".products").innerHTML = html;
-    
-
 }
+
 main();
