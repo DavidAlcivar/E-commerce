@@ -12,7 +12,7 @@ async function getProducts() {
     }
 
 }
-function printProducts(products) {
+function printProducts(store) {
     let html = "";
 
     store.products.forEach(function ({
