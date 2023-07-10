@@ -43,19 +43,25 @@ function printProducts(store) {
     document.querySelector(".products").innerHTML = html;
 
 }
-async function main() {
-    const store = {
-        products: await getProducts(),
-        bag: {}
-    }
-    printProducts(store);
 
+function handleShowBag() {
     const iconBag = document.querySelector(".icon__bag");
     const bag = document.querySelector(".bag");
 
     iconBag.addEventListener("click", function () {
         bag.classList.toggle("bag__show");
     });
+
+}
+async function main() {
+    const store = {
+        products: await getProducts(),
+        bag: {}
+    }
+    printProducts(store);
+    handleShowBag() 
+
+
 
 }
 
