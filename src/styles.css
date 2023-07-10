@@ -1,5 +1,5 @@
 .root {
-    --h-navbar: 50px;
+    --h-navbar: 200px;
 }
 
 * {
@@ -76,7 +76,7 @@ a {
 
 .bag__products {
     height: 80%;
-    background-color: blue;
+    background-color: blue; 
 
 }
 
