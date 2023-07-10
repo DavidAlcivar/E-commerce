@@ -58,13 +58,6 @@ a {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 
 }
-
-.product {
-    background-color: rgb(221, 219, 219);
-    border-radius: 1rem;
-
-}
-
 .bag {
     background-color: rebeccapurple;
     position: fixed;
@@ -92,3 +85,10 @@ a {
    background-color: red;
 
 }
+
+.product {
+    background-color: rgb(221, 219, 219);
+    border-radius: 1rem;
+
+}
+
