@@ -12,12 +12,10 @@ async function getProducts() {
     }
 
 }
-async function main() {
-    const products = await getProducts();
-
+function printProducts(products) {
     let html = "";
 
-    products.forEach(function ({
+    store.products.forEach(function ({
         category,
         description,
         id,
@@ -27,15 +25,6 @@ async function main() {
         quantity
 
     }) {
-        console.log({
-            category,
-            description,
-            id,
-            image,
-            name,
-            price,
-            quantity,
-        });
 
         html += `
         <div class="product">
@@ -49,11 +38,19 @@ async function main() {
         </div>
             
         `;
-
-
     });
 
     document.querySelector(".products").innerHTML = html;
+
+}
+async function main() {
+    const store = {
+        products: await getProducts(),
+        bag: {}
+    }
+    printProducts(store)
+
+
 }
 
 main();
