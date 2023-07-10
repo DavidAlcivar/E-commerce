@@ -53,7 +53,7 @@ async function main() {
     const icon__bag = document.querySelector('.icon__bag')
     const bag = document.querySelector('.bag')
 
-    iconBag.addEventListener('click', function () {
+    icon__bag.addEventListener('click', function () {
         bag.classList.toggle("bag__show ");
     })
 
