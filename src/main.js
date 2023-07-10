@@ -50,12 +50,12 @@ async function main() {
     }
     printProducts(store);
 
-    const icon__bag = document.querySelector('.icon__bag')
-    const bag = document.querySelector('.bag')
+    const iconBag = document.querySelector(".icon__bag");
+    const bag = document.querySelector(".bag");
 
-    icon__bag.addEventListener('click', function () {
+    iconBag.addEventListener("click", function () {
         bag.classList.toggle("bag__show");
-    })
+    });
 
 }
 
