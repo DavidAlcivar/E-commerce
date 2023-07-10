@@ -65,9 +65,7 @@ a {
     right: 0;
     width: 50%;
     height: calc(100% - var(--h-navbar));
-    padding: 1rem;
-   ;
-    ;
+  
 }
 
 /* .bag__show {
