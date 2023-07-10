@@ -1,6 +1,6 @@
-.root {
+/* .root {
     --h-navbar: 50px;
-}
+} */
 
 * {
     margin: 0;
@@ -39,7 +39,8 @@ a {
     align-items: center;
     justify-content: space-between;
     padding: 0 1rem;
-    height: var(--h-navbar);
+    /* height: var(--h-navbar); */
+    height: 50px;
     max-width: 1024px;
     margin: 0 auto;
 }
@@ -61,10 +62,12 @@ a {
 .bag {
     background-color: rebeccapurple;
     position: fixed;
-    top: var(--h-navbar-);
+    /* top: var(--h-navbar-); */
+    top: 0;
     right: 0;
     width: 50%;
-    height: calc(100% - var(--h-navbar));
+    /* height: calc(100% - var(--h-navbar)); */
+    height: 100%;
   
 }
 
@@ -72,7 +75,7 @@ a {
    
 } */
 
-.bag__products {
+/* .bag__products {
     height: 80%;
     background-color: blue; 
 
@@ -88,5 +91,5 @@ a {
     background-color: rgb(221, 219, 219);
     border-radius: 1rem;
 
-}
+} */
 
