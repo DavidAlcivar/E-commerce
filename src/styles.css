@@ -2,8 +2,6 @@
     --h-navbar: 50px;
 }
 
-
-
 * {
     margin: 0;
     padding: 0;
@@ -70,7 +68,7 @@ a {
 .bag {
     background-color: rebeccapurple;
     position: fixed;
-    top: var(--h-navbar);
+    top: var(--h-navbar-);
     right: 0;
     width: 50%;
     height: calc(100% - var(--h-navbar));
