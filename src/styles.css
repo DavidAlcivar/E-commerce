@@ -1,6 +1,6 @@
-/* .root {
+.root {
     --h-navbar: 50px;
-} */
+}
 
 * {
     margin: 0;
@@ -39,8 +39,7 @@ a {
     align-items: center;
     justify-content: space-between;
     padding: 0 1rem;
-    /* height: var(--h-navbar); */
-    height: 50px;
+    height: var(--h-navbar);
     max-width: 1024px;
     margin: 0 auto;
 }
@@ -62,28 +61,27 @@ a {
 .bag {
     background-color: rebeccapurple;
     position: fixed;
-    /* top: var(--h-navbar-); */
-    top: 0;
+    top: var(--h-navbar-);
     right: 0;
     width: 50%;
-    /* height: calc(100% - var(--h-navbar)); */
-    height: 100%;
-  
+    height: calc(100% - var(--h-navbar));
+    padding: 1rem;
+    /* transform: translateX(100%);
+    transition: transform 0.5s; */
 }
 
 /* .bag__show {
-   
+    transform: translateX(0%);
 } */
 
-/* .bag__products {
+.bag__products {
     height: 80%;
     background-color: blue; 
 
 }
 
 .bag__total{
-    height: 20%;
-    background-color: red;
+    height: 20%;background-color: red;
 
 }
 
@@ -91,5 +89,5 @@ a {
     background-color: rgb(221, 219, 219);
     border-radius: 1rem;
 
-} */
+}
 
