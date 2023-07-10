@@ -22,7 +22,7 @@ a {
 }
 
 .content__navbar {
-    background-color: aqua;
+    background-color:rgb(221, 219, 219);
     position: fixed;
     top: 0;
     left: 0;
@@ -30,9 +30,13 @@ a {
     color: black;
 }
 .navbar {
-    background-color: blue;
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    padding: 0 1rem;
+    height: 50px;
+    max-width: 1024px;
+    margin: 0 auto;
 }
 
 .container {
