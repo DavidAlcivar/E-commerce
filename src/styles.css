@@ -1,5 +1,5 @@
 :root {
-    --h-navbar: 50px;
+    --h-navbar: 35px;
 }
 
 
@@ -61,7 +61,7 @@ a {
 
 }
 .bag {
-    background-color: rebeccapurple;
+    background-color: white;
     position: fixed;
     top: var(--h-navbar);
     right: 0;
