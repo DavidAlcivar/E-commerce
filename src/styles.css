@@ -68,7 +68,7 @@ a {
 }
 
 .bag {
-    background-color: red;
+    background-color: rebeccapurple;
     position: fixed;
     top: var(--h-navbar);
     right: 0;
