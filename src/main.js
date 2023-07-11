@@ -91,13 +91,15 @@ function addToBagFromProducts(store) {
                             <b>${name}/<b>
                         </p>
                         <p>
-                            <small>price: $${price} | amount: ${amount}</small>
+                            <small>price: $${price} | <b>$${amount * price}</b></small>
                         </p>
-                        <p>
-                            <b>
-                            <small>$${amount * price}</small>  
-                            </b>
-                        </p>
+                        <div class="cart__product__opt">
+                            <i class='bx bx-minus-circle'></i>
+                            <span>${amount}</span>
+                            <i class='bx bx-minus-circle'></i>
+                            <i class='bx bxs-trash'></i>
+                         </div>
+                        
                     </div>
                 </div>
 

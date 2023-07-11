@@ -83,12 +83,14 @@ a {
     height: 85%;
     overflow-y: scroll; 
     
-
 }
 .bag__product {
     display: grid;
     padding: 1rem;
     grid-template-columns: 1fr 2fr ;
+    background-color: rgb(221, 219, 219);
+    border-radius: 1rem;
+    
 }
 
 .bag__total{
