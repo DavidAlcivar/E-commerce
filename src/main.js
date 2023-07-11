@@ -51,7 +51,32 @@ function handleShowBag() {
     iconBag.addEventListener("click", function () {
         bag.classList.toggle("bag__show");
     });
+function addToBagFromProducts(store) {
+    const productsHTML = document.querySelector(".products")
 
+    productsHTML.addEventListener("click", function (e) {
+        if (e.target.classList.contains("product__btn")) {
+            const id = Number(e.target.id);
+
+            const productFound = store.products.find(function (product) {
+                return product.id === id
+               
+            });
+
+            if(store.bag[productFound.id]) {
+                store.bag[productFound.id].amount++;
+            } else {
+                store.bag[productFound.id] = {
+                    ...productFound,
+                    amount: 1
+                };
+            }
+            
+        }
+            console.log(store.bag);
+    });
+    
+}
 }
 async function main() {
     const store = {
@@ -61,8 +86,8 @@ async function main() {
     printProducts(store);
     handleShowBag() 
 
-
-
+    addToBagFromProducts(store)
+        
 }
 
 main();
