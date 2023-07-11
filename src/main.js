@@ -84,29 +84,27 @@ function addToBagFromProducts(store) {
                 <div class="bag__products">
                     <div className="bag__products__img">
                         <img src="${image}" alt="" />
-                        </div>
+                    </div>
 
-                        <div class="bag__products__body">
-                            <p>
-                                <b>${name}/<b>
-                            <p>
-                            <p>
-                                <small>price: $${price} | amount ${amount}</small>
-                            </p>
-                            <p>
-                                <b>
-                                <small>${amount * price}</small>  
-                                </b>
-                            </p>
+                    <div class="bag__products__body">
+                        <p>
+                            <b>${name}/<b>
+                        </p>
+                        <p>
+                            <small>price: $${price} | amount: ${amount}</small>
+                        </p>
+                        <p>
+                            <b>
+                            <small>$${amount * price}</small>  
+                            </b>
+                        </p>
                     </div>
                 </div>
 
-                `
+            `;
             console.log(store.bag[key]);
 
         }
-
-
 
         document.querySelector(".bag__products").innerHTML = html;
 

@@ -61,7 +61,7 @@ a {
 
 }
 .bag {
-    background-color: white;
+    background-color: black;
     position: fixed;
     top: var(--h-navbar);
     right: 0;
@@ -81,10 +81,14 @@ a {
 
 .bag__products {
     height: 85%;
-    background-color: black;
     overflow-y: scroll; 
     
 
+}
+.bag__product {
+    display: grid;
+    padding: 1rem;
+    grid-template-columns: 1fr 2fr ;
 }
 
 .bag__total{
