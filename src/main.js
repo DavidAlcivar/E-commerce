@@ -4,6 +4,8 @@ async function getProducts() {
     try {
         const data = await fetch(BASE__URL);
         const response = await data.json();
+
+        localStorage.setItem("products", JSON.stringify(response))
         return response
 
     } catch (error) {
@@ -52,6 +54,42 @@ function handleShowBag() {
         bag.classList.toggle("bag__show");
     });
 }
+function printProductsInBag(store) {
+    let html = "";
+
+    for (const key in store.bag) {
+        const { amount, id, image, name, price } = store.bag[key]
+        html += `
+            <div class="bag__products">
+                <div className="bag__products__img">
+                    <img src="${image}" alt="" />
+                </div>
+
+                <div class="bag__products__body">
+                    <p>
+                        <b>${name}/<b>
+                    </p>
+                    <p>
+                        <small>price: $${price} | <b>$${amount * price}</b></small>
+                    </p>
+                    <div class="cart__product__opt">
+                        <i class='bx bx-minus-circle'></i>
+                        <span>${amount}</span>
+                        <i class='bx bx-plus-circle'></i>
+                        <i class='bx bxs-trash'></i>
+                     </div>
+                    
+                </div>
+            </div>
+
+        `;
+        console.log(store.bag[key]);
+
+    }
+
+    document.querySelector(".bag__products").innerHTML = html;
+
+}
 
 function addToBagFromProducts(store) {
     const productsHTML = document.querySelector(".products")
@@ -74,41 +112,11 @@ function addToBagFromProducts(store) {
                 };
             }
 
+            localStorage.setItem('bag', JSON.stringify())
+            printProductsInBag(store);
         }
 
-        let html = "";
 
-        for (const key in store.bag) {
-            const { amount, id, image, name, price } = store.bag[key]
-            html += `
-                <div class="bag__products">
-                    <div className="bag__products__img">
-                        <img src="${image}" alt="" />
-                    </div>
-
-                    <div class="bag__products__body">
-                        <p>
-                            <b>${name}/<b>
-                        </p>
-                        <p>
-                            <small>price: $${price} | <b>$${amount * price}</b></small>
-                        </p>
-                        <div class="cart__product__opt">
-                            <i class='bx bx-minus-circle'></i>
-                            <span>${amount}</span>
-                            <i class='bx bx-minus-circle'></i>
-                            <i class='bx bxs-trash'></i>
-                         </div>
-                        
-                    </div>
-                </div>
-
-            `;
-            console.log(store.bag[key]);
-
-        }
-
-        document.querySelector(".bag__products").innerHTML = html;
 
     });
 
@@ -116,13 +124,16 @@ function addToBagFromProducts(store) {
 
 async function main() {
     const store = {
-        products: await getProducts(),
-        bag: {},
+        products:
+            JSON.parse(localStorage.getItem("products")) || (await getProducts()),
+        bag: JSON.parse(localStorage.getItem("Bag")) || {},
     };
 
     printProducts(store);
     handleShowBag();
     addToBagFromProducts(store);
+    printProductsInBag(store);
+    
 }
 
 main();
