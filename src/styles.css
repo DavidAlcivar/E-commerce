@@ -72,6 +72,7 @@ a {
     transition: transform 0.5s;
     display: flex;
     flex-direction: column;
+    color: white;
 }
 
 .bag__show {
@@ -80,7 +81,9 @@ a {
 
 .bag__products {
     height: 85%;
-    background-color: blue; 
+    background-color: black;
+    overflow-y: scroll; 
+    
 
 }
 

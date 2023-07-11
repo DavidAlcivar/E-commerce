@@ -51,6 +51,8 @@ function handleShowBag() {
     iconBag.addEventListener("click", function () {
         bag.classList.toggle("bag__show");
     });
+}
+
 function addToBagFromProducts(store) {
     const productsHTML = document.querySelector(".products")
 
@@ -60,34 +62,67 @@ function addToBagFromProducts(store) {
 
             const productFound = store.products.find(function (product) {
                 return product.id === id
-               
+
             });
 
-            if(store.bag[productFound.id]) {
+            if (store.bag[productFound.id]) {
                 store.bag[productFound.id].amount++;
             } else {
                 store.bag[productFound.id] = {
                     ...productFound,
-                    amount: 1
+                    amount: 1,
                 };
             }
-            
+
         }
-            console.log(store.bag);
+
+        let html = "";
+
+        for (const key in store.bag) {
+            const { amount, id, image, name, price } = store.bag[key]
+            html += `
+                <div class="bag__products">
+                    <div className="bag__products__img">
+                        <img src="${image}" alt="" />
+                        </div>
+
+                        <div class="bag__products__body">
+                            <p>
+                                <b>${name}/<b>
+                            <p>
+                            <p>
+                                <small>price: $${price} | amount ${amount}</small>
+                            </p>
+                            <p>
+                                <b>
+                                <small>${amount * price}</small>  
+                                </b>
+                            </p>
+                    </div>
+                </div>
+
+                `
+            console.log(store.bag[key]);
+
+        }
+
+
+
+        document.querySelector(".bag__products").innerHTML = html;
+
     });
-    
+
 }
-}
+
 async function main() {
     const store = {
         products: await getProducts(),
-        bag: {}
-    }
-    printProducts(store);
-    handleShowBag() 
+        bag: {},
+    };
 
-    addToBagFromProducts(store)
-        
+    printProducts(store);
+    handleShowBag();
+    addToBagFromProducts(store);
 }
 
 main();
