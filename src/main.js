@@ -33,9 +33,12 @@ function printProducts(store) {
             <div class="product__img">
                 <img src="${image}" alt="">
             </div>
-            <h3>${name}</h3>
-            <p>$${price}.0 - ${quantity} unidades</p>
-            <button class="product__btn" id= "${id}">Agregar</button>
+
+            <div class="product__info">
+                <h5>${name}</h5>
+                <h5>$${price}.0 - ${quantity} unidades</h5>
+                <button class="product__btn" id= "${id}">Add</button>
+            </div>
 
         </div>
             
@@ -58,23 +61,22 @@ function printProductsInBag(store) {
     let html = "";
 
     for (const key in store.bag) {
-        const { amount, id, image, name, price } = store.bag[key]
+        const { amount, id, image, name, price, quantity } = store.bag[key]
         html += `
             <div class="bag__products">
-                <div className="bag__products__img">
-                    <img src="${image}" alt="" />
+                <div class="bag__product__img">
+                    <img src="${image}" alt="imagen" />
                 </div>
 
-                <div class="bag__products__body">
-                    <p>
-                        <b>${name}/<b>
-                    </p>
-                    <p>
-                        <small>price: $${price} | <b>$${amount * price}</b></small>
-                    </p>
-                    <div class="cart__product__opt">
+                <div class="bag__product__body">
+                    <h4${name} | $${price}</h4>
+                    <p>Stock: ${quantity}</p>
+                    <small>Price: $${price} | <b>$${amount * price}</b></small>
+        
+                    
+                    <div class="bag__product__opt">
                         <i class='bx bx-minus-circle'></i>
-                        <span>${amount}</span>
+                        <span>${amount} unit</span>
                         <i class='bx bx-plus-circle'></i>
                         <i class='bx bxs-trash'></i>
                      </div>
@@ -84,7 +86,6 @@ function printProductsInBag(store) {
 
         `;
         console.log(store.bag[key]);
-
     }
 
     document.querySelector(".bag__products").innerHTML = html;
@@ -104,6 +105,9 @@ function addToBagFromProducts(store) {
             });
 
             if (store.bag[productFound.id]) {
+                if (productFound.quantity === store.bag[productFound.id].amount) 
+                    return alert("No tenemos más prendas");
+
                 store.bag[productFound.id].amount++;
             } else {
                 store.bag[productFound.id] = {
@@ -112,13 +116,14 @@ function addToBagFromProducts(store) {
                 };
             }
 
-            localStorage.setItem('bag', JSON.stringify())
+            localStorage.setItem('bag', JSON.stringify(store.bag    ))
             printProductsInBag(store);
         }
 
-
+        
 
     });
+    
 
 }
 
@@ -133,7 +138,7 @@ async function main() {
     handleShowBag();
     addToBagFromProducts(store);
     printProductsInBag(store);
-    
+
 }
 
 main();
