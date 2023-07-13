@@ -173,7 +173,7 @@ function buttonsInBag(store) {
     
 }
 
-async function main() {
+async function main() { 
     const store = {
         products:
             JSON.parse(localStorage.getItem("products")) || (await getProducts()),
