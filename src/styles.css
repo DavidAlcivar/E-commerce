@@ -156,7 +156,7 @@ a {
 }
 
 .bag__product__body{
-    width: 60%;
+    width: 50%;
     padding: 2rem;
     display: flex;
     flex-direction: column;
@@ -172,7 +172,7 @@ a {
 }
 
 .bag__product__img{
-    width: 40%;
+    width: 50%;
     border-radius: 1rem;
     background-color:#ccc;
 
@@ -185,6 +185,12 @@ a {
 .bag__product__opt .bxs-trash {
     color: lightcoral;
 }
+
+.bag__product__opt i {
+    cursor: pointer;
+    
+}
+
 
 @media (max-width: 500px) {
     .bag {

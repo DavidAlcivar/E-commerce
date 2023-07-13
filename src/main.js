@@ -72,7 +72,7 @@ function addToBagFromProducts(store) {
             });
 
             if (store.bag[productFound.id]) {
-                if (productFound.quantity === store.bag[productFound.id].amount) 
+                if (productFound.quantity === store.bag[productFound.id].amount)
                     return alert("No tenemos más prendas");
 
                 store.bag[productFound.id].amount++;
@@ -83,18 +83,18 @@ function addToBagFromProducts(store) {
                 };
             }
 
-            localStorage.setItem('bag', JSON.stringify(store.bag    ))
+            localStorage.setItem('bag', JSON.stringify(store.bag))
             printProductsInBag(store);
         }
 
-        
+
 
     });
-    
+
 
 }
 
-function printProductsInBag(store) {    
+function printProductsInBag(store) {
     let html = "";
 
     for (const key in store.bag) {
@@ -111,7 +111,7 @@ function printProductsInBag(store) {
                     <small>Price: $${price} | <b>$${amount * price}</b></small>
         
                     
-                    <div class="bag__product__opt">
+                    <div class="bag__product__opt"  id='${id}'> 
                         <i class='bx bx-minus-circle'></i>
                         <span>${amount} unit</span>
                         <i class='bx bx-plus-circle'></i>
@@ -128,6 +128,50 @@ function printProductsInBag(store) {
     document.querySelector(".bag__products").innerHTML = html;
 
 }
+function buttonsInBag(store) {
+    const bagProducts = document.querySelector(".bag__products");
+
+    bagProducts.addEventListener("click", function (e) {
+        if (e.target.classList.contains("bx-plus-circle")) {
+            const id = Number(e.target.parentElement.id);
+
+            const productFound = store.products.find(function (product) {
+                return product.id === id
+
+            });
+
+            if (store.bag[productFound.id]) {
+                if (productFound.quantity === store.bag[productFound.id].amount)
+                    return alert("No tenemos más prendas");
+
+                store.bag[id].amount++;
+            }
+        }
+        if (e.target.classList.contains("bx-minus-circle")) {
+            const id = Number(e.target.parentElement.id);
+            if (store.bag[id].amount === 1) {
+                const response = confirm("Seguro que quieres eliminar este producto?")
+                if (!response) return;
+                delete store.bag[id];
+            } else {
+                store.bag[id].amount--;
+
+            }
+
+        }
+        if (e.target.classList.contains("bxs-trash")) {
+            const id = Number(e.target.parentElement.id);
+            const response = confirm("Seguro que quieres eliminar este producto?")
+            if (!response) return;
+            delete store.bag[id];
+        }
+        localStorage.setItem("bag", JSON.stringify(store.bag))
+        printProductsInBag(store);
+
+
+    });
+    
+}
 
 async function main() {
     const store = {
@@ -140,6 +184,9 @@ async function main() {
     handleShowBag();
     addToBagFromProducts(store);
     printProductsInBag(store);
+    buttonsInBag(store);
+
+  
 
 }
 
