@@ -109,7 +109,7 @@ a {
 }
 
 .bag {
-    background-color:rgb(0, 0, 0);
+    background-color:rgb(255, 255, 255);
     position: fixed;
     top: var(--h-navbar);
     right: -100%;
@@ -120,7 +120,7 @@ a {
     transition: transform 0.5s;
     display: flex;
     flex-direction: column;
-    color: white;
+    color: black
     
     
      
@@ -130,33 +130,34 @@ a {
     transform: translateX(0%);
     right: 0;
     
+
+    
     
 }
 
 .bag__products {
     height: 90%;
-    overflow-y: scroll;
     display: flex;
-    flex-direction:column   ;
+    flex-direction: column;
     gap: 1rem;
     padding: 1rem;
-
+    overflow-y: scroll;
 }
 
 .bag__product {
     gap: 1rem;
     padding: 1rem;
-    background-color: white;
     border-radius: 1rem;
     display: flex ;
     align-items: center;
-   
+    background-color: white;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
                                               
 }
 
 .bag__product__body{
     width: 60%;
-    padding: 1rem;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
@@ -167,24 +168,28 @@ a {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    
 }
 
 .bag__product__img{
     width: 40%;
-    background-color: #ccc;
     border-radius: 1rem;
+    background-color:#ccc;
 
 }
 .bag__total{
     height: 10%;
     background-color: blue;
-    
+}
 
+.bag__product__opt .bxs-trash {
+    color: lightcoral;
 }
 
 @media (max-width: 500px) {
     .bag {
         width: 100%;
     }
+    
 }
 

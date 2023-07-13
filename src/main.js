@@ -14,6 +14,7 @@ async function getProducts() {
     }
 
 }
+
 function printProducts(store) {
     let html = "";
 
@@ -57,40 +58,6 @@ function handleShowBag() {
         bag.classList.toggle("bag__show");
     });
 }
-function printProductsInBag(store) {
-    let html = "";
-
-    for (const key in store.bag) {
-        const { amount, id, image, name, price, quantity } = store.bag[key]
-        html += `
-            <div class="bag__products">
-                <div class="bag__product__img">
-                    <img src="${image}" alt="imagen" />
-                </div>
-
-                <div class="bag__product__body">
-                    <h4${name} | $${price}</h4>
-                    <p>Stock: ${quantity}</p>
-                    <small>Price: $${price} | <b>$${amount * price}</b></small>
-        
-                    
-                    <div class="bag__product__opt">
-                        <i class='bx bx-minus-circle'></i>
-                        <span>${amount} unit</span>
-                        <i class='bx bx-plus-circle'></i>
-                        <i class='bx bxs-trash'></i>
-                     </div>
-                    
-                </div>
-            </div>
-
-        `;
-        console.log(store.bag[key]);
-    }
-
-    document.querySelector(".bag__products").innerHTML = html;
-
-}
 
 function addToBagFromProducts(store) {
     const productsHTML = document.querySelector(".products")
@@ -124,6 +91,41 @@ function addToBagFromProducts(store) {
 
     });
     
+
+}
+
+function printProductsInBag(store) {    
+    let html = "";
+
+    for (const key in store.bag) {
+        const { amount, id, image, name, price, quantity } = store.bag[key]
+        html += `
+            <div class="bag__product">
+                <div class="bag__product__img">
+                    <img src="${image}" alt="imagen" />
+                </div>
+
+                <div className="bag__product__body">
+                    <h4>${name} | $${price}</h4>
+                    <p>Stock: ${quantity}</p>
+                    <small>Price: $${price} | <b>$${amount * price}</b></small>
+        
+                    
+                    <div class="bag__product__opt">
+                        <i class='bx bx-minus-circle'></i>
+                        <span>${amount} unit</span>
+                        <i class='bx bx-plus-circle'></i>
+                        <i class='bx bxs-trash'></i>
+                     </div>
+                    
+                </div>
+            </div>
+
+        `;
+        console.log(store.bag[key]);
+    }
+
+    document.querySelector(".bag__products").innerHTML = html;
 
 }
 
