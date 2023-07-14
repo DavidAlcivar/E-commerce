@@ -91,12 +91,21 @@ a {
 }
 
 .product__info h5 {
-    min-height: 30px;
+    min-height: 40px;
 }
 
 .product__info span {
     font-weight:normal;
     font-size: 1rem;
+}
+
+.product__info .soldOut {
+    color: white;
+    padding: 0.5rem 1rem;
+    background-color: lightcoral;
+    border-radius: 5px;
+    user-select: none;
+    display: inline-block;
 }
 
 .product__btn {

@@ -37,8 +37,9 @@ function printProducts(store) {
 
             <div class="product__info">
                 <h5>${name}</h5>
-                <h5>$${price}.0 - ${quantity} unidades</h5>
-                <button class="product__btn" id= "${id}">Add</button>
+                <h5>$${price}.00 | Stock ${quantity}</h5>
+                    ${quantity ? `<button class="product__btn" id= "${id}">Add</button>` : "<span class='soldOut'>Sold out</span>"
+            } 
             </div>
 
         </div>
@@ -191,6 +192,44 @@ function printTotal(store) {
     infoAmount.textContent = amountProducts + " Units";
 
 }
+function total(store) {
+    const btnBuy = document.querySelector(".btn__buy");
+    btnBuy.addEventListener("click", function () {
+        if (!Object.values(store.bag).length)
+            return alert("No has añadido nada")
+        const response = confirm("Seguro que quieres comprar?");
+        if (!response) return;
+
+        const currentProducts = [];
+
+        for (const product of store.products) {
+            const productBag = store.bag[product.id];
+            if (product.id === productBag?.id) {
+                currentProducts.push({
+                    ...product,
+                    quantity: product.quantity - productBag.amount,
+                });
+            } else {
+                currentProducts.push(product);
+            }
+
+        }
+
+        store.products = currentProducts;
+        store.bag = {};
+
+        localStorage.setItem("products", JSON.stringify(store.products));
+        localStorage.setItem("bag", JSON.stringify(store.bag));
+
+        printTotal(store);
+        printProductsInBag(store);
+        printProducts(store);
+
+
+
+    });
+    
+}
 async function main() {
     const store = {
         products:
@@ -204,7 +243,7 @@ async function main() {
     printProductsInBag(store);
     buttonsInBag(store);
     printTotal(store);
-
+    total(store);
 
 }
 
