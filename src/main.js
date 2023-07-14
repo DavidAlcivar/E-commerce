@@ -188,7 +188,7 @@ function printTotal(store) {
 
     }
     infoTotal.textContent = "$" + totalProducts + ".00";
-    infoAmount.textContent = amountProducts + " units";
+    infoAmount.textContent = amountProducts + " Units";
 
 }
 async function main() {
