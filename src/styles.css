@@ -30,6 +30,7 @@ a {
 .icon__bag {
     font-size: 2rem;
     cursor: pointer;
+    
 }
 
 .content__navbar {
@@ -55,18 +56,18 @@ a {
 .amountProducts {
     width: 20px;
     height: 20px;
-    font-size: 0.8rem;
+    font-size: 0.6rem;
     background-color: black;
     color: white;
-    display: inline-block;
+    display: flex;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
-    /* right: 165px; */
-    right: -15px;
+    right: auto;
     top: 15px;
+
 }
 
 
