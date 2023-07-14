@@ -64,7 +64,8 @@ a {
     justify-content: center;
     align-items: center;
     position: absolute;
-    right: 165px;
+    /* right: 165px; */
+    right: -15px;
     top: 15px;
 }
 
