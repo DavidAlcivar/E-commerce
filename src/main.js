@@ -85,6 +85,7 @@ function addToBagFromProducts(store) {
 
             localStorage.setItem('bag', JSON.stringify(store.bag))
             printProductsInBag(store);
+            printTotal(store);
         }
 
 
@@ -167,13 +168,30 @@ function buttonsInBag(store) {
         }
         localStorage.setItem("bag", JSON.stringify(store.bag))
         printProductsInBag(store);
+        printTotal(store);
 
 
     });
-    
-}
 
-async function main() { 
+}
+function printTotal(store) {
+    const infoTotal = document.querySelector(".info__total");
+    const infoAmount = document.querySelector(".info__amount");
+
+    let totalProducts = 0;
+    let amountProducts = 0;
+
+    for (const product in store.bag) {
+        const { amount, price } = store.bag[product];
+        totalProducts += price * amount;
+        amountProducts += amount;
+
+    }
+    infoTotal.textContent = "$" + totalProducts + ".00";
+    infoAmount.textContent = amountProducts + " units";
+
+}
+async function main() {
     const store = {
         products:
             JSON.parse(localStorage.getItem("products")) || (await getProducts()),
@@ -185,9 +203,12 @@ async function main() {
     addToBagFromProducts(store);
     printProductsInBag(store);
     buttonsInBag(store);
+    printTotal(store);
 
-  
 
 }
+
+
+
 
 main();
