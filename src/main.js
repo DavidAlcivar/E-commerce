@@ -87,6 +87,7 @@ function addToBagFromProducts(store) {
             localStorage.setItem('bag', JSON.stringify(store.bag))
             printProductsInBag(store);
             printTotal(store);
+            amountPrintProducts(store);
         }
 
 
@@ -170,6 +171,7 @@ function buttonsInBag(store) {
         localStorage.setItem("bag", JSON.stringify(store.bag))
         printProductsInBag(store);
         printTotal(store);
+        amountPrintProducts(store);
 
 
     });
@@ -224,10 +226,22 @@ function total(store) {
         printTotal(store);
         printProductsInBag(store);
         printProducts(store);
+        amountPrintProducts(store);
 
 
 
     });
+
+}
+function amountPrintProducts(store) {
+    const amountProducts = document.querySelector(".amountProducts");
+
+    let amount = 0;
+    for (const product in store.bag) {
+            amount += store.bag[product].amount;  
+        }
+
+        amountProducts.textContent = amount;
     
 }
 async function main() {
@@ -244,6 +258,9 @@ async function main() {
     buttonsInBag(store);
     printTotal(store);
     total(store);
+    amountPrintProducts(store);
+    
+
 
 }
 
